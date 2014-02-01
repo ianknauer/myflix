@@ -68,4 +68,13 @@ describe UsersController do
       expect(assigns(:user)).to eq(alice)
     end
   end
+  
+  describe "GET new_with_invitation_token" do
+    it "sets @user with recipient's email" do
+      invitation = Fabricate(:invitation)
+      get :new_with_invitaiton_token, token: invitation.token
+      expect(assigns(:user).email).to eq(invitation.recipient_email)
+    end
+    it "redirects to expired token page for invalid tokens"
+  end
 end
