@@ -8,7 +8,6 @@ describe InvitationsController do
       expect(assigns(:invitation)).to be_new_record
       expect(assigns(:invitation)).to be_instance_of Invitation
     end
-    
     it_behaves_like "requires sign in" do
       let(:action) { get :new }
     end
@@ -21,7 +20,9 @@ describe InvitationsController do
     end
     
     context "with valid inputs" do
+      
       after { ActionMailer::Base.deliveries.clear }
+      
       it "redirects to the invitation new page" do
         set_current_user
         post :create, invitation: { recipient_name: "joe smith", recipient_email: "joe.smith@gmail.com", message: "Hello joe, please join me on this wicked awesome site!" }

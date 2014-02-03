@@ -10,7 +10,6 @@ describe UsersController do
   
   describe "POST create" do
     context "with valid input" do
-      
       it "creates the user" do
         post :create, user: Fabricate.attributes_for(:user) 
         expect(User.count).to eq(1)
@@ -23,11 +22,23 @@ describe UsersController do
         ian = Fabricate(:user)
         invitation = Fabricate(:invitation, inviter: ian, recipient_email: 'bob@example.com')
         post :create, user: { email: 'bob@example.com', password: "password", full_name: 'joe doe'}, invitation_token: invitation.token
-        bob = User.where(email: 'bob@xample.com').first
+        bob = User.where(email: 'bob@example.com').first
         expect(bob.follows?(ian)).to be_true 
       end
-      it "makes the inviter follow the user"
-      it "expires the invitation upon acceptance"
+      it "makes the inviter follow the user" do
+        ian = Fabricate(:user)
+        invitation = Fabricate(:invitation, inviter: ian, recipient_email: 'bob@example.com')
+        post :create, user: { email: 'bob@example.com', password: "password", full_name: 'joe doe'}, invitation_token: invitation.token
+        bob = User.where(email: 'bob@example.com').first
+        expect(ian.follows?(bob)).to be_true 
+      end
+      it "expires the invitation upon acceptance" do
+        ian = Fabricate(:user)
+        invitation = Fabricate(:invitation, inviter: ian, recipient_email: 'bob@example.com')
+        post :create, user: { email: 'bob@example.com', password: "password", full_name: 'joe doe'}, invitation_token: invitation.token
+        bob = User.where(email: 'bob@example.com').first
+        expect(Invitation.first.token).to be_nil
+      end
     end
     
     context "with invalid input" do
