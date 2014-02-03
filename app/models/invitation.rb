@@ -1,5 +1,5 @@
 class Invitation < ActiveRecord::Base
-  belongs_to :inviter, class_name: "User"
+  belongs_to :inviter, class_name: 'User'
   
   validates :recipient_email, presence: true
   validates :recipient_name, presence: true

@@ -1,5 +1,5 @@
 Fabricator(:invitation) do
-  recipient_name { Faker::Name.name }
-  recipient_email { Faker::Internet.email }
-  message { Faker::Lorem.paragraphs(2) }
+  recipient_name { 'ian knauer' }
+  recipient_email { 'bob@gmail.com' }
+  message { 'testing testing testing' }
 end

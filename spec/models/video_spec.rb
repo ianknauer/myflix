@@ -29,7 +29,6 @@ describe Video do
     end 
     it "returns an empty array for an empty search query" do
       expect(Video.search_by_title("")).to eq([])
-      
     end
     
   end

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, on: :create
 
   before_create :generate_token
+  
   def normalize_queue_item_positions
     queue_items.each_with_index do |queue_item, index|
       queue_item.update_attributes(position: index+1)
@@ -23,6 +24,11 @@ class User < ActiveRecord::Base
   def follows?(another_user)
     following_relationships.map(&:leader).include?(another_user)
   end
+  
+  def follow(another_user)
+    following_relationships.create(leader: another_user) if can_follow?(another_user)
+  end
+    
   
   def can_follow?(another_user)
     !(self.follows?(another_user) || self == another_user)
