@@ -30,5 +30,7 @@ Myflix::Application.routes.draw do
   get 'people', to: 'relationships#index'
   resources :sessions, only: [:create]
   resources :queue_items, only: [:create, :destroy]
-
+  
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
