@@ -15,6 +15,7 @@ gem 'faker'
 gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', require: false
 gem 'slim'
+gem 'unicorn'
 
 group :development do
   gem 'sqlite3'

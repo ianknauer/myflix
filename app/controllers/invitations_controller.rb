@@ -8,11 +8,11 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(invitation_params.merge!(inviter_id: current_user.id))
     if @invitation.save
-      InvitationWorker.perform_async(@invitation.token)
+      AppMailer.delay.send_invitation_email(@invitation)
       flash[:success] = "You have invited #{@invitation.recipient_name} to myflix!"
       redirect_to new_invitation_path
     else
-      flash[:error] = "Do you feel lucky? well, do you?"
+      flash[:error] = "Something has gone terribly wrong..."
       render :new
     end
   end
