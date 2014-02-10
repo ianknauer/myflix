@@ -15,6 +15,10 @@ Myflix::Application.routes.draw do
   
   resources :password_resets, only: [:show, :create]
   
+  namespace :admin do
+    resources :videos, only: [:new, :create]
+  end
+  
   get 'my_queue', to: 'queue_items#index'
   resources :forgot_passwords, only: [:create]
   
