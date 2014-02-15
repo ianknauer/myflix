@@ -4,8 +4,11 @@ class Video < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true
   
+  mount_uploader :large_thumb, LargeThumbUploader
+  mount_uploader :small_thumb, SmallThumbUploader
+  
   def self.search_by_title(search_term)
     return [] if search_term.blank?
-    where("name LIKE ?", "%#{search_term}%").order("created_at DESC")
+    where("name LIKE ?",  "%#{search_term}%").order("created_at DESC")
   end
 end 

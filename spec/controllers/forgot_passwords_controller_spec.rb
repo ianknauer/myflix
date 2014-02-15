@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe ForgotPasswordsController do
+  after { ActionMailer::Base.deliveries.clear }
+  
   describe "POST create" do
     context "with blank input" do
       it "redirects to the forgot password page" do
