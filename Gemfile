@@ -20,6 +20,8 @@ gem 'newrelic_rpm'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'stripe'
+gem 'figaro'
 
 group :development do
   gem 'sqlite3'
