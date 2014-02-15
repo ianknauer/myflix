@@ -19,5 +19,4 @@ class VideosController < ApplicationController
   def set_video
      @video = Video.find_by_id(params[:id])
   end
-  
 end

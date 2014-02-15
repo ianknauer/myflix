@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140201010503) do
+ActiveRecord::Schema.define(version: 20140215204736) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140201010503) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
+    t.boolean  "admin"
   end
 
   create_table "videos", force: true do |t|
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140201010503) do
     t.string   "small_thumb"
     t.string   "large_thumb"
     t.integer  "category_id"
+    t.string   "video_url"
   end
 
 end
