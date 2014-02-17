@@ -14,13 +14,11 @@ class UsersController < ApplicationController
     if @user.save
       handle_invitation
       Stripe.api_key = ENV['STRIPE_SECRET_KEY']
-      charge = Stripe::Charge.create(
+      StripeWrapper::Charge.create(
         :card  => params[:stripeToken],
         :amount      => 999,
         :description => "Sign up charge for #{@user.email}",
-        :currency    => 'cad'
       )
-      StripeWrapper::Charge.create()
       AppMailer.send_welcome_email(@user).deliver
       redirect_to root_path
     else
