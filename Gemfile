@@ -41,6 +41,8 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'vcr'
+  gem 'webmock', '1.11.0'
 end
 
 group :test, :development do

@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         :description => "Sign up charge for #{@user.email}",
         :currency    => 'cad'
       )
+      StripeWrapper::Charge.create()
       AppMailer.send_welcome_email(@user).deliver
       redirect_to root_path
     else
