@@ -14,7 +14,6 @@
 /log/*.log
 /tmp
 
-
 /config/initializers/carrier_wave.rb
 /config/application.yml
 /config/newrelic.yml
