@@ -1,7 +1,7 @@
 module StripeWrapper
   class Charge
     attr_reader :error_message, :response
-    
+
     def initialize(options={})
       @response = options[:response]
       @error_message = options[:error_message]
