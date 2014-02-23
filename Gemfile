@@ -22,6 +22,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'stripe'
 gem 'figaro'
+gem 'draper', '~> 1.3'
 
 group :development do
   gem 'sqlite3'
