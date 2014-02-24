@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 20 Feb 2014 06:38:52 GMT
+      - Mon, 24 Feb 2014 18:49:29 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -52,14 +52,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_103WuI2E3uvvWEu3DTzJjvWM",
+          "id": "tok_103Yaz2E3uvvWEu3hYrlsOWj",
           "livemode": false,
-          "created": 1392878332,
+          "created": 1393267769,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_103WuI2E3uvvWEu3aojHnjFy",
+            "id": "card_103Yaz2E3uvvWEu3Swx2fcSA",
             "object": "card",
             "last4": "0002",
             "type": "Visa",
@@ -78,13 +78,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 20 Feb 2014 06:38:52 GMT
+  recorded_at: Mon, 24 Feb 2014 18:49:29 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=99&currency=cad&card=tok_103WuI2E3uvvWEu3DTzJjvWM&description=An%20invalid%20charge
+      string: amount=99&currency=cad&card=tok_103Yaz2E3uvvWEu3hYrlsOWj&description=An%20invalid%20charge
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
@@ -110,7 +110,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 20 Feb 2014 06:38:52 GMT
+      - Mon, 24 Feb 2014 18:49:30 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -121,10 +121,10 @@ http_interactions:
       - '300'
       Access-Control-Allow-Credentials:
       - 'true'
-      Cache-Control:
-      - no-cache, no-store
       Access-Control-Allow-Methods:
       - GET, POST, HEAD, OPTIONS, DELETE
+      Cache-Control:
+      - no-cache, no-store
     body:
       encoding: UTF-8
       string: |
@@ -133,9 +133,9 @@ http_interactions:
             "message": "Your card was declined.",
             "type": "card_error",
             "code": "card_declined",
-            "charge": "ch_103WuI2E3uvvWEu3m91ASXHv"
+            "charge": "ch_103Yaz2E3uvvWEu3CaoRpNXE"
           }
         }
     http_version: 
-  recorded_at: Thu, 20 Feb 2014 06:38:52 GMT
+  recorded_at: Mon, 24 Feb 2014 18:49:30 GMT
 recorded_with: VCR 2.8.0
