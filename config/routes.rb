@@ -17,6 +17,7 @@ Myflix::Application.routes.draw do
   
   namespace :admin do
     resources :videos, only: [:new, :create]
+    resources :payments, only: [:index]
   end
   
   get 'my_queue', to: 'queue_items#index'
@@ -37,4 +38,6 @@ Myflix::Application.routes.draw do
   
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
+
+  mount StripeEvent::Engine => '/stripe_events'
 end
